@@ -369,3 +369,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,pycharm,python,intellij
+other_lesson/pre_training/.idea/

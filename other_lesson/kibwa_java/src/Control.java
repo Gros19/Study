@@ -65,10 +65,20 @@ public class Control {
         int sum = 1;
         int i=2;
         do{
-            sum += i++;
+            if(i%2 != 0) {
+                sum += i;
+            }
+            i++;
         }
         while(i < 101);
         System.out.println(sum);
+
+        sum = 1;
+        for(int j = 3; j < 101; j += 2){
+            sum += j;
+            System.out.println(sum);
+        }
+
 
     }
 }

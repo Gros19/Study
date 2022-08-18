@@ -1,0 +1,361 @@
+1. 10,9,8,7,6,5,4,3,2,1 순으로 정수를 출력하는 프로그램을 작성하시오.
+public class P1 {
+    public static void main(String[] args) {
+        for(int i = 10; i > 0; i--){
+            System.out.print(i+" ");
+        }
+    }
+}
+
+
+2. 다음의 프로그램을 실행하면 어떤 결과가 출력될까요? 또 키위('K')가 출력되도록 수정하시오.
+K가 출력됩니다.
+public class FruitVendingMachine {
+    public static void main( String args[]) {
+        char coin = 'K';
+        switch (coin) {
+            case 'A' :
+                System.out.println("사과");
+                break;
+            case 'P' :
+                System.out.println("배");
+                break;
+            case 'G' :
+                System.out.println("포도");
+                break;
+            case 'K':
+                System.out.println("키위");
+                break;
+            default :
+                System.out.println(coin);
+                break;
+        }
+    }
+}
+
+(응용문제)
+	2.1. 모든 과일이 선택되어 나오도록 수정하시오.
+public class FruitVendingMachine {
+    public static void main( String args[]) {
+        char coin = 'K';
+        switch (coin) {
+            case 'A' :
+                System.out.println("사과");
+            case 'P' :
+                System.out.println("배");
+            case 'G' :
+                System.out.println("포도");
+            case 'K':
+                System.out.println("키위");
+                break;
+            default :
+                System.out.println(coin);
+        }
+    }
+}
+
+	2.2. 대/소문자 상관없이 p(P)를 입력하면 '배'가 선택되도록 클래스를 작성하시오.
+public class FruitVendingMachine {
+    public static void main( String args[]) {
+        char coin = 'P';
+
+        if(coin > 96 && coin <123){
+            coin-=32;
+        }
+        switch (coin) {
+            case 'A' :
+                System.out.println("사과");
+                break;
+            case 'P' :
+                System.out.println("배");
+                break;
+            case 'G' :
+                System.out.println("포도");
+                break;
+            case 'K':
+                System.out.println("키위");
+                break;
+            default :
+                System.out.println(coin);
+                break;
+        }
+    }
+}
+	2.3. 다음의 machine 메서드를 구현해 보시오.(가능한 사람만!!-조장/반장 필수)
+	public class FruitVendingMachine {
+    public static void main( String args[]) {
+        char coin = 'P';
+        FruitVendingMachine f = new FruitVendingMachine();
+        String str = f.machine(coin);
+        System.out.println("자판기 선택 과일 : " + str);
+
+    }
+    String machine(char coin){
+        if(coin > 96 && coin <123){
+            coin-=32;
+        }
+        switch (coin) {
+            case 'A' :
+                return "사과";
+            case 'P' :
+                return "배";
+            case 'G' :
+                return "포도";
+            case 'K':
+                return "키위";
+            default :
+                return "???";
+        }
+
+    }
+}
+
+
+3. switch문과 if문의 상호 변환관계에 대해 설명하시오.(간단한 예로 코딩하기)
+        6번 문제로 예를 들어 if문은 범위 지정을 편리하게 논리연산을 사용하여 간소화 할 수 있지만
+        switch 문으로 여러 범위를 커버하려면 case를 그만큼 나열해야 한다.
+        간단한 구분은 switch case 문을 써도 무방하겠지만 범위로 구분해야 하는 경우 if문을 쓰는 것이 더 편리하다.
+        /* if문 */
+        if(num == 100){
+                    System.out.println(" 자전거, TV, 노트북, 냉장고, 만년필입니다.");
+                } else if (num >89) {
+                    System.out.println("TV, 노트북, 냉장고, 만년필입니다.");
+                } else if (num > 79) {
+                    System.out.println("노트북, 냉장고, 만년필입니다.");
+                } else if (num > 69) {
+                    System.out.println("냉장고, 만년필입니다.");
+                } else{
+                    System.out.println("만년필입니다.");
+                }
+        /* switch 문 */
+        switch (num){
+            case 100:
+                System.out.println(" 자전거, TV, 노트북, 냉장고, 만년필입니다.");
+                break;
+            case 90:
+                System.out.println("TV, 노트북, 냉장고, 만년필입니다.");
+                break;
+            case 80:
+                System.out.println("노트북, 냉장고, 만년필입니다.");
+                break;
+            case 70:
+                System.out.println("냉장고, 만년필입니다.");
+                break;
+            default:
+                System.out.println("만년필입니다.");
+        }
+
+
+4. 다음의 프로그램은 잘못된 프로그램입니다. 어떤 부분이 잘못되었는지 찾고, 잘못된 이유를 설명하십시오.
+byte의 범위인 -128 ~ 127을 넘어갔습니다.
+class Total {
+	public static void main String args[]) {
+		int total = 0;
+		for (int cnt=0; cnt<200; cnt++)
+			total += cnt;
+			System.out.println(total);
+	}
+}
+
+
+
+
+/*
+5. 다음 형식으로 출력되도록 프로그램하시오.
+1까지의 합 : 1
+2까지의 합 : 3
+3까지의 합 : 6
+ .....
+10까지의 합 : 55
+ */
+public class P5 {
+    public static void main(String[] args) {
+        int sum = 0;
+        for(int i = 1; i< 11; i++){
+            sum += i;
+            System.out.println(i+"까지의 합: " + sum);
+
+        }
+    }
+}
+
+/*
+6. 임의로 발생된 10~100점 사이의 점수로 다음의 메세지를 출력하기 위한 프로그램을 작성하시오.(switch)
+   점수가 100점이면 선물이 자전거, TV, 노트북, 냉장고, 만년필입니다.
+           90점이면 선물이 TV, 노트북, 냉장고, 만년필입니다.
+	   80점이면 선물이 노트북, 냉장고, 만년필입니다.
+	   70점이면 선물이 냉장고, 만년필입니다.
+	   그외 점수이면 선물이 만년필입니다.
+   출력예) 당신의 점수는 80이고, 선물은 노트북, 냉장고, 만년필입니다.
+
+
+ */
+public class P6 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int num = scn.nextInt();
+
+        switch (num){
+            case 100:
+                System.out.println(" 자전거, TV, 노트북, 냉장고, 만년필입니다.");
+                break;
+            case 90:
+                System.out.println("TV, 노트북, 냉장고, 만년필입니다.");
+                break;
+            case 80:
+                System.out.println("노트북, 냉장고, 만년필입니다.");
+                break;
+            case 70:
+                System.out.println("냉장고, 만년필입니다.");
+                break;
+            default:
+                System.out.println("만년필입니다.");
+        }
+    }
+}
+
+
+
+/*
+7. 임의의 단을 발생하여 그 단을 출력하는 프로그램을 작성하시오. (for)
+   단, 1 또는 10인 경우 출력에서 제외!
+ */
+public class P7 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int d = scn.nextInt();
+        if (d == 1 || d == 10){
+            return;
+        }
+        for(int i = 1; i < 10; i++){
+            System.out.println(d+"*"+i+"="+d*i);
+        }
+    }
+}
+
+
+/*
+
+8. 임의의 수를 발생하여 그 수만큼 다음의 형태로 '*'을 출력하는 프로그램을 작성하시오.(do~while)
+******   (6인 발생된 경우)
+*****
+****
+***
+**
+*
+ */
+public class P8 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        do{
+            int in = n;
+            while(in-->0){
+                System.out.print(n);
+            }
+            System.out.println();
+        }
+        while(--n > 0);
+    }
+}
+
+
+8. 임의의 수를 발생하여 그 수만큼 다음의 형태로 '*'을 출력하는 프로그램을 작성하시오.(do~while)
+******   (6인 발생된 경우)
+*****
+****
+***
+**
+*
+
+/*
+9. 다음의 형태로 출력되는 프로그램을 작성하시오.(while)
+10
+9
+8
+7
+...
+1
+ */
+public class P9 {
+    public static void main(String[] args) {
+        int i = 11;
+        while(--i > 0){
+            System.out.println(i);
+        }
+    }
+}
+
+
+/*
+10.1~30 사이의 숫자를 출력하되 3의 배수는 제외하고 출력하는 프로그램을 작성하시오.(반복문 아무거나)
+1 2 4 5 7 8 10 .... 29
+ */
+public class P10 {
+
+    public static void main(String[] args) {
+        for(int i = 1 ; i < 31; i++){
+            if(i%3==0){
+                continue;
+            }
+            System.out.print(i +" ");
+        }
+    }
+}
+
+/*11.
+    1+(-2)+3+(-4)+... 과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100이상이 되는지 구하시오.
+*/
+public class P11 {
+    public static void main(String[] args) {
+        int i = 1;
+        int sum = 0;
+        while(sum<=100){
+
+            if(i%2 == 0){
+                sum -= i;
+            }else {
+                sum += i;
+            }
+            //System.out.println(i+ " " + sum);
+            i++;
+        }
+        System.out.println(i-1);//201
+    }
+}
+
+//12.
+public class ArrayEx3 {
+    public static void main(String[] args) {
+        if (args.length !=3) {
+            System.out.println("usage: java ArrayEx2 NUM1 OP NUM2");
+            System.exit(0);
+        }
+        String result;
+
+        switch (args[1]){
+            case "+":
+                result = String.valueOf(Integer.parseInt(args[0]) + Integer.parseInt(args[2]));
+                break;
+            case "-":
+                result = String.valueOf(Integer.parseInt(args[0]) - Integer.parseInt(args[2]));
+                break;
+            case "*":
+                result = String.valueOf(Integer.parseInt(args[0]) * Integer.parseInt(args[2]));
+                break;
+            case "/":
+                if(Integer.parseInt(args[2]) == 0){
+                    result = "0으로 나눌 수 없습니다.";
+                    break;
+                }
+                result = String.valueOf(Integer.parseInt(args[0]) / Integer.parseInt(args[2]));
+                break;
+            default:
+                result = "잘못된 입력";
+
+
+        }
+
+        System.out.println("결과: "+result);
+    }
+}

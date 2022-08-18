@@ -1,0 +1,88 @@
+public class Exercise2 {
+    public static void main(String[] args) {
+        int numOfApples = 123;	// 사과의 개수
+        int sizeOfBucket = 10;	// 바구니의 크기(바구니에 담을 수 있는 사과의 개수)
+        int numOfBucket = (int) Math.ceil((double) numOfApples/sizeOfBucket);
+        System.out.println("필요한 바구니의 수 :"+numOfBucket);
+    }
+}
+
+
+public class Exercise3 {
+    public static void main(String[] args) {
+        int num = -3;
+        System.out.println((num > 0) ? "양수": (num == 0)? "0" : "음수");
+    }
+}
+
+public class Exercise4 {
+    public static void main(String[] args) {
+        int num = 45643;
+        System.out.println( num-num%100 );
+    }
+}
+
+public class Exercise5 {
+    public static void main(String[] args) {
+        int num = 345;
+        System.out.println( num/10*10+1 );
+        System.out.println( num-num%10+1 );
+    }
+}
+
+public class Exercise6 {
+    public static void main(String[] args) {
+        int num = 929;
+
+        System.out.println( 10-num%10+num );
+    }
+}
+
+public class Exercise7 {
+    public static void main(String[] args) {
+        byte a = 10;
+        byte b = 20;
+        int c = a + b;
+
+        char ch = 'A';
+        ch = (char) (ch + 2);
+
+        float f = 3 / 2;
+        long l = 3000 * 3000 * 3000;
+
+        float f2 = 0.1f;
+        double d = 0.1;
+
+        boolean result = d==f2;
+
+        System.out.println("c="+c);
+        System.out.println("ch="+ch);
+        System.out.println("f="+f);
+        System.out.println("l="+l);
+        System.out.println("result="+result);
+    }
+}
+
+public class Exercise8 {
+    public static void main(String[] args) {
+
+        char ch = 'z';
+        boolean b =     (ch > 47 && ch < 58)? true :
+                        (ch > 64 && ch < 91)? true :
+                        (ch > 96 && ch <123)? true : false;
+
+        System.out.println(b);
+    }
+}
+
+
+public class Exercise9 {
+    public static void main(String[] args) {
+        char ch = 'A';
+
+        char lowerCase = (ch > 64 && ch < 91 ) ? ( (char) (ch+32) ) : ch;
+
+        System.out.println("upperCase:"+ch);
+        System.out.println("lowerCase:"+lowerCase);
+    }
+}

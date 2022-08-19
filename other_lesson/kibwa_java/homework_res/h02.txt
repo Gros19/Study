@@ -192,12 +192,12 @@ public class P5 {
  */
 public class P6 {
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int num = scn.nextInt();
 
+        int num = (int)(Math.random()*11)*10+1;
+        System.out.print("당신의 점수는 "+num+"점이고, 선물은 ");
         switch (num){
             case 100:
-                System.out.println(" 자전거, TV, 노트북, 냉장고, 만년필입니다.");
+                System.out.println("자전거, TV, 노트북, 냉장고, 만년필입니다.");
                 break;
             case 90:
                 System.out.println("TV, 노트북, 냉장고, 만년필입니다.");

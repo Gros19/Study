@@ -18,9 +18,7 @@ public class P8 {
         int n = scn.nextInt();
         do{
             int in = n;
-            while(in-->0){
-                System.out.print(n);
-            }
+            while(in-->0){ System.out.print(n); }
             System.out.println();
         }
         while(--n > 0);

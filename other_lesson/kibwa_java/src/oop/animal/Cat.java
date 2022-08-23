@@ -14,7 +14,10 @@ public class Cat extends Animal implements Pet{
 
     @Override
     public String toString() {
-        return "이름: "+ name;
+        if(legs == 0){
+            return "이름: "+ name;
+        }
+        return "이름: "+ name+"\n"+"다리갯수 :" + legs;
     }
 
     @Override
@@ -35,14 +38,7 @@ public class Cat extends Animal implements Pet{
 
     @Override
     public void eat() {
-        super.eat();
         System.out.println("도둑고양이는 거미와 쥐를 잡아 먹습니다.");
     }
 
-    @Override
-    public void walk() {
-        super.walk();
-        System.out.println(this.toString());
-        System.out.println("다리갯수 :" + legs);
-    }
 }

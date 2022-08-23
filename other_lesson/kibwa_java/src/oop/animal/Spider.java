@@ -7,7 +7,6 @@ public class Spider extends Animal{
 
     @Override
     public void eat() {
-        super.eat();
         System.out.println("거미는 8개의 다리를 이용해서 먹이를 잡습니다.");
     }
 }

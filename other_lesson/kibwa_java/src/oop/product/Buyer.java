@@ -1,9 +1,13 @@
 package oop.product;
 
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class Buyer {
 	int money = 1000;
 	int bonusPoint = 0;
 	Product[] item = new Product[3];//구입한 제품을 저장하기 위한 배열
+	ArrayList alist = new ArrayList();
 	int i=0;
 	
 	//buy메소드 구현
@@ -15,7 +19,7 @@ public class Buyer {
 		else {
 			this.money -= product.price;
 			this.bonusPoint += product.bonusPoint;
-			this.item[i++] = product;
+			alist.add(product);
 			System.out.println(product + "을/를 구입하셨습니다.");
 		}
 		

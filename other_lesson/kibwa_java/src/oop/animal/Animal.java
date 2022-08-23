@@ -10,9 +10,7 @@ abstract public class Animal {
     protected Animal() {
     }
 
-    public void eat(){
-
-    }
+    abstract public void eat();
     public void walk(){}
     public String toString(){
         return "";

@@ -16,6 +16,7 @@ public class Fish extends Animal implements Pet{
     @Override
     public void walk() {
         super.walk();
+        System.out.println("이름:" + name);
         System.out.println("물고기는 걷지 못합니다.");
         System.out.println("물고기는 다리가 없는 동물입니다.");
     }
@@ -36,9 +37,4 @@ public class Fish extends Animal implements Pet{
         System.out.println(name+"은 하루종일 헤엄치며 놉니다.");
     }
 
-    @Override
-    public String toString() {
-         super.toString();
-        return "이름:" + name;
-    }
 }

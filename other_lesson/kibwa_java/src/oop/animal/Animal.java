@@ -7,9 +7,6 @@ abstract public class Animal {
         this.legs = legs;
     }
 
-    protected Animal() {
-    }
-
     abstract public void eat();
     public void walk(){}
     public String toString(){

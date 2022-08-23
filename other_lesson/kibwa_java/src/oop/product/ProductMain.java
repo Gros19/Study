@@ -13,6 +13,9 @@ public class ProductMain {
 		b.buy(computer);
 		b.buy(audio);
 		b.summary();
+		System.out.println("------------------");
+		b.refund(tv);
+		b.summary();
 	}
 
 }

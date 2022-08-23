@@ -3,17 +3,25 @@ package oop.animal;
 public class TestPrint {
     public static void main(String[] args) {
         PolyClass pc = new PolyClass();
-        pc.act((Animal) new Spider(8));
-        pc.act((Animal) new Cat(4));
-        pc.act((Animal) new Fish(4));
+        Spider s = new Spider(89);
+        Animal c = new Cat(5);
+        Fish f = new Fish(432);
+
+        pc.act((Animal)s);//
+        pc.act((Animal)c);//
+        pc.act((Animal) f);
         System.out.println();
-        pc.act((Pet) new Cat(4));
-        pc.act((Pet) new Fish(4));
+        pc.act((Pet) c);
+        pc.act((Pet) f);
 
         System.out.println();
 
-        pc.act2((Animal) new Fish(4));
-        pc.act2((Animal) new Cat(4));
+        pc.act2((Animal)f);
+        pc.act2((Animal)c);
+
+        System.out.println();
+        //c.setName("낭만고양이");
+        pc.act2((Animal)c);
 
     }
 }

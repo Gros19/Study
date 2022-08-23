@@ -24,6 +24,11 @@ public class Buyer {
 		}
 		
 	}
+
+	public void refund(Product product){
+		alist.remove(product);
+		System.out.println("제품을 반납했습니다.");
+	}
 	
 	//summary 메소드 구현
 	

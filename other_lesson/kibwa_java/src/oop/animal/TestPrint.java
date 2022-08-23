@@ -10,6 +10,10 @@ public class TestPrint {
         pc.act((Pet) new Cat(4));
         pc.act((Pet) new Fish(4));
 
+        System.out.println();
+
+        pc.act2((Animal) new Fish(4));
+        pc.act2((Animal) new Cat(4));
 
     }
 }

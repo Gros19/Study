@@ -2,14 +2,16 @@ package homework.date04;
 
 import java.util.Scanner;
 
-public class ItemHandler {
+public class ItemHandler implements Lendable{
     private Item[] myItems;
     private int numOfItems;
+
 
     protected ItemHandler(int num){
         myItems = new Item[num];
         numOfItems = 0;
     }
+
 
     protected void addItem(int choice){
         Scanner scn = new Scanner(System.in);
@@ -47,9 +49,9 @@ public class ItemHandler {
             String outDate = scn.nextLine();
             addItemInfo(new Book(itemNo, title, price, name, pageNum, outDate));
         } else {
-            System.out.println("알 수 없는 입력");
+            System.out.println("--알 수 없는 입력");
         }
-        System.out.println("입력 완료");
+        System.out.println("--입력 완료");
     }
 
     protected void addItemInfo(Item item){
@@ -57,12 +59,43 @@ public class ItemHandler {
     }
 
 
-
-    protected void showAllDate(){
-        int inum = 1;
+    /*대출이 가능한 책들만 조회*/
+    protected void showNormalAllDate(){
+        System.out.println("<대출 가능한 책 목록>");
+        int inum = 0;
         for(Item i : myItems){
             if(i == null){
-                System.out.println("조회가 완료됐습니다.");
+                System.out.println("--조회가 완료됐습니다.");
+                return;
+            }
+            if(i.state == STATE_NORMAL){
+                System.out.println("\t"+ inum++);
+                i.output();
+            }
+        }
+    }
+
+    /*대출 중인 책들만 조회*/
+    protected void showBORROWEDAllDate(){
+        System.out.println("<대출 중인 책 목록>");
+        int inum = 0;
+        for(Item i : myItems){
+            if(i == null){
+                System.out.println("--조회가 완료됐습니다.");
+                return;
+            }
+            if(i.state != STATE_NORMAL){
+                System.out.println("\t"+ inum++);
+                i.output();
+            }
+        }
+    }
+
+    protected void showAllDate(){
+        int inum = 0;
+        for(Item i : myItems){
+            if(i == null){
+                System.out.println("--조회가 완료됐습니다.");
                 return;
             }
             System.out.println("\t"+ inum++);
@@ -70,4 +103,34 @@ public class ItemHandler {
         }
     }
 
+    @Override
+    public void checkOut(String borrower, String date) {
+        Scanner scn = new Scanner(System.in);
+
+        showNormalAllDate();
+        System.out.println("--대출할 책 번호를 입력하세요.");
+        System.out.print("inum: ");
+        int inum = Integer.parseInt(scn.nextLine());
+        if(inum < 0 || inum > numOfItems - 1){
+            System.out.println("--유효하지 않은 입력입니다.");
+        }else{
+            System.out.println("--대출을 시작합니다.");
+            myItems[inum].state = STATE_BORROWED;
+            showBORROWEDAllDate();
+        }
+    }
+
+    @Override
+    public void checkIn() {
+        int inum = 0;
+        for(Item i : myItems){
+            if(i == null){
+                System.out.println("--반납이 완료됐습니다.");
+                return;
+            }
+            i.state = STATE_NORMAL;
+            System.out.println("--"+i.title + "반납");
+        }
+
+    }
 }

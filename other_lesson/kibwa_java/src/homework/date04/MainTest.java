@@ -14,10 +14,14 @@ public class MainTest {
                 System.out.println("1. 아이템 추가");
                 System.out.println("2. 정보 출력");
                 System.out.println("3. 프로그램 종료");
+                System.out.println("4. 아이템 대출");
+                System.out.println("5. 아이템 반납");
+                System.out.println("6. 대출 중인 책 목록 출력");
+                System.out.println("7. 대출 가능한 책 목록 출력");
                 System.out.println("-------------------");
                 System.out.print("선택: ");
 
-                int choice = scn.nextInt();
+                int choice = Integer.parseInt(scn.nextLine());
                 switch (choice){
                     case 1:
                         System.out.println("#####아이템 선택######");
@@ -26,7 +30,7 @@ public class MainTest {
                         System.out.println("3. BOOK 추가");
                         System.out.println("-------------------");
                         System.out.print("선택: ");
-                        int ichoce = scn.nextInt();
+                        int ichoce = Integer.parseInt(scn.nextLine());
                         h.addItem(ichoce);
                         break;
                     case 2:
@@ -34,6 +38,25 @@ public class MainTest {
                         break;
                     case 3:
                         return;
+
+                        /*대출*/
+                    case 4:
+                        System.out.print("대출자: ");
+                        String borrower = scn.nextLine();
+                        System.out.print("대출일: ");
+                        String outDate = scn.nextLine();
+                        h.checkOut(borrower, outDate);
+                        break;
+                        /*반납*/
+                    case 5:
+                        h.checkIn();
+                        break;
+                    case 6:
+                        h.showBORROWEDAllDate();
+                        break;
+                    case 7:
+                        h.showNormalAllDate();
+                        break;
 
                 }
 

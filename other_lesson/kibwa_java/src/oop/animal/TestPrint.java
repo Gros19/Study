@@ -3,7 +3,7 @@ package oop.animal;
 public class TestPrint {
     public static void main(String[] args) {
         PolyClass pc = new PolyClass();
-        Spider s = new Spider(89);
+        oop.animal.Spider s = new oop.animal.Spider(89);
         Animal c = new Cat(5);
         Fish f = new Fish(432);
 

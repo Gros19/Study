@@ -1,5 +1,6 @@
 package homework.date04;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class ItemHandler implements Lendable{
@@ -103,6 +104,8 @@ public class ItemHandler implements Lendable{
         }
     }
 
+    /*
+     * 대출*/
     @Override
     public void checkOut(String borrower, String date) {
         Scanner scn = new Scanner(System.in);
@@ -120,6 +123,8 @@ public class ItemHandler implements Lendable{
         }
     }
 
+    /*
+    * 반납*/
     @Override
     public void checkIn() {
         int inum = 0;
@@ -133,4 +138,54 @@ public class ItemHandler implements Lendable{
         }
 
     }
+
+    public void writeItem() {
+        BufferedWriter bw = null;
+        try{
+            System.out.println("--파일 출력 시작");
+           bw = new BufferedWriter(new FileWriter("D:\\Study\\other_lesson\\kibwa_java\\item.txt"));
+           for(Item i : myItems){
+               System.out.println(i.toString());
+               bw.write(i.toString());
+               bw.newLine();
+
+           }
+           bw.flush();
+        }catch (IOException ie){
+            System.out.println(ie.getMessage());
+            System.out.println(ie.getCause());
+            System.out.println(ie.getStackTrace());
+        }finally {
+            System.out.println("--파일 출력이 완료됐습니다.");
+
+            try{
+                bw.close();
+            }catch (IOException e){
+
+            }
+        }
+    }
+    public void readItem() {
+        BufferedReader br = null;
+        try{
+            br = new BufferedReader(new FileReader("D:\\Study\\other_lesson\\kibwa_java\\item.txt"));
+            System.out.println("--파일 읽기 시작");
+            while (true){
+                String s = br.readLine();
+                if(s == null){
+                    break;
+                }
+                System.out.println(s);
+            }
+        }catch (IOException ie){
+            System.out.println(ie.getMessage());
+            System.out.println(ie.getCause());
+            System.out.println(ie.getStackTrace());
+        }finally {
+            System.out.println("--파일 일기가 완료됐습니다.");
+
+        }
+
+    }
+
 }

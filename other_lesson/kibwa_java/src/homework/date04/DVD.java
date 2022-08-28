@@ -19,4 +19,17 @@ public class DVD extends Item{
 
 
     }
+
+    @Override
+    public String toString() {
+        return "DVD{" +
+                "actor='" + actor + '\'' +
+                ", runtime='" + runtime + '\'' +
+                ", outDate='" + outDate + '\'' +
+                ", itemNo=" + itemNo +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", state=" + state +
+                '}';
+    }
 }

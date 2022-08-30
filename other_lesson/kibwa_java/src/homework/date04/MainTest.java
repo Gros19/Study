@@ -1,5 +1,6 @@
 package homework.date04;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,6 +19,16 @@ public class MainTest {
                 System.out.println("5. 아이템 반납");
                 System.out.println("6. 대출 중인 책 목록 출력");
                 System.out.println("7. 대출 가능한 책 목록 출력");
+                System.out.println("8. Item 파일로 읽기");
+                System.out.println("9. Item 파일로 출력");
+
+                //오늘 과제
+                //대출정보 파일로 변경
+                // item 배열을 반복문 돌려서 File로 Write
+                // item 배열을 반복문 돌려서 File로 Read
+
+                //쓰레드
+                //입금
                 System.out.println("-------------------");
                 System.out.print("선택: ");
 
@@ -57,6 +68,13 @@ public class MainTest {
                     case 7:
                         h.showNormalAllDate();
                         break;
+                    case 8:
+                        h.readItem();
+                        break;
+                    case 9:
+                        h.writeItem();
+                        break;
+
 
                 }
 
@@ -68,8 +86,9 @@ public class MainTest {
         }catch (InputMismatchException e){
             System.out.println(e.getMessage());
             System.out.println("입력을 다시 확인해주세요!!");
-        }
-        finally {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
             MainTest.main(new String[0]);
         }
 

@@ -1,6 +1,11 @@
 package homework.date04;
 
+<<<<<<< HEAD
 public class Book extends homework.date04.Item {
+=======
+public class Book extends Item{
+
+>>>>>>> Gros
     String name;
     int pageNum;
     String outDate;
@@ -19,5 +24,18 @@ public class Book extends homework.date04.Item {
         System.out.println("outDate: "+outDate);
 
 
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", pageNum=" + pageNum +
+                ", outDate='" + outDate + '\'' +
+                ", itemNo=" + itemNo +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", state=" + state +
+                '}';
     }
 }

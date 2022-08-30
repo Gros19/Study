@@ -20,4 +20,17 @@ public class CD extends Item{
 
 
     }
+
+    @Override
+    public String toString() {
+        return "CD{" +
+                "singer='" + singer + '\'' +
+                ", trackNum=" + trackNum +
+                ", outDate='" + outDate + '\'' +
+                ", itemNo=" + itemNo +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", state=" + state +
+                '}';
+    }
 }

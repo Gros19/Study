@@ -2,12 +2,12 @@ package homework.date04;
 
 import java.util.Scanner;
 
-public class ItemHandler implements Lendable{
+public class itemhandler implements Lendable{
     private Item[] myItems;
     private int numOfItems;
 
 
-    protected ItemHandler(int num){
+    protected itemhandler(int num){
         myItems = new Item[num];
         numOfItems = 0;
     }

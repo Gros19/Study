@@ -1,8 +1,8 @@
 package oop.product;
 
 public class Audio extends Product{
-	public Audio() {
-		super(30);
+	public Audio(int p) {
+		super(p);
 	}
 	
 	public String toString() {

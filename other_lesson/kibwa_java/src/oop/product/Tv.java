@@ -1,8 +1,8 @@
 package oop.product;
 
 public class Tv extends Product{
-	public Tv() {
-		super(100);
+	public Tv(int p) {
+		super(p);
 	}
 	
 	public String toString() {

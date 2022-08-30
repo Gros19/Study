@@ -1,8 +1,8 @@
 package oop.product;
 
 public class Computer extends Product{
-	public Computer() {
-		super(70);
+	public Computer(int p) {
+		super(p);
 	}
 	public String toString() {
 		return "Computer";

@@ -370,3 +370,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,pycharm,python,intellij
 other_lesson/pre_training/.idea/
+
+other_lesson/kibwa_java/.idea/

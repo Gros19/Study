@@ -1,6 +1,6 @@
 package homework.date04;
 
-public class Book extends Item{
+public class Book extends homework.date04.Item {
     String name;
     int pageNum;
     String outDate;

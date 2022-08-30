@@ -4,10 +4,9 @@ import java.sql.Array;
 import java.util.ArrayList;
 
 public class Buyer {
-	int money = 1000;
+	int money = 100000;
 	int bonusPoint = 0;
-	Product[] item = new Product[3];//구입한 제품을 저장하기 위한 배열
-	ArrayList alist = new ArrayList();
+	ArrayList<Product> alist = new ArrayList<Product>();//구입한 제품을 저장하기 위한 배열
 	int i=0;
 	
 	//buy메소드 구현
@@ -20,7 +19,10 @@ public class Buyer {
 			this.money -= product.price;
 			this.bonusPoint += product.bonusPoint;
 			alist.add(product);
+			System.out.println("현재 잔액: "+this.money);
 			System.out.println(product + "을/를 구입하셨습니다.");
+			System.out.println(product.price);
+			alist.add(product);
 		}
 		
 	}
@@ -34,9 +36,9 @@ public class Buyer {
 	
 	public void summary() {
 		int sum = 0;
-		for(int j=0;j<i;j++) {
-			sum += this.item[j].price;
-			System.out.println("제품명 : "+ item[j] +" 가격 : "+item[j].price+" 보너스 : "+item[j].bonusPoint);
+		for(Product p : alist){
+			System.out.println("제품명 : " + p + "\n가격 : " + p.price + "\n보너스 : " + p.bonusPoint);
+			sum += p.price;
 		}
 		System.out.println("총 가격 : "+sum);
 	}

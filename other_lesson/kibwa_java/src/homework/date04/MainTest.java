@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MainTest {
     public static void main(String[] args) {
-        ItemHandler h = new ItemHandler(5);
+        itemhandler h = new itemhandler(5);
         Scanner scn = new Scanner(System.in);
 
         try{

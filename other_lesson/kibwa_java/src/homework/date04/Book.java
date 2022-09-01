@@ -1,11 +1,15 @@
 package homework.date04;
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 public class Book extends homework.date04.Item {
 =======
 public class Book extends Item{
 
 >>>>>>> Gros
+=======
+public class Book extends homework.date04.Item {
+>>>>>>> Stashed changes
     String name;
     int pageNum;
     String outDate;

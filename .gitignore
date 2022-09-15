@@ -372,3 +372,4 @@ $RECYCLE.BIN/
 other_lesson/pre_training/.idea/
 
 other_lesson/kibwa_java/.idea/
+other_lesson/mac_k8s/.vagrant/*

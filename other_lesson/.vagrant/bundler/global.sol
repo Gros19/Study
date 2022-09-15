@@ -1,0 +1,1 @@
+{"dependencies":[["vagrant-vbox-snapshot",["= 0.0.10"]],["vagrant-vmware-desktop",["= 3.0.1"]]],"checksum":"01ec047a1c1e614504dd2b2e500579537ce9ea2c7f8a3778d28a17edbad2080b","vagrant_version":"2.3.0"}

@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-N = 3
+N = 2
 
 
 Vagrant.configure("2") do |config|
@@ -11,11 +11,10 @@ Vagrant.configure("2") do |config|
 	cfg.vm.box = "rshash/Ubuntu_20.04-M1-Mac"
     cfg.vm.hostname = "m-k8s"
     cfg.vm.network "private_network", ip: "192.168.1.10"
-	cfg.vm.network "forwarded_port",guest: 22, host: 60010, auto_currect: true, id: "ssh"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--cpus", "2"]
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
-	  vb.customize ["modifyvm", :id, "--groups", "/k8s-SgMST-1.13.1(github_SysNet4Admin)"]
+	  cfg.vm.network "forwarded_port",guest: 22, host: 60010, auto_currect: true, id: "ssh"
+    cfg.vm.provider "vmware_desktop" do |v|
+      v.vmx["memsize"] = "2048"
+      v.vmx["numvcpus"] = "4"
     end
     cfg.vm.synced_folder "../data", "/vagrant", disabled: true
     cfg.vm.provision "shell", inline: <<-SHELL
@@ -36,10 +35,9 @@ Vagrant.configure("2") do |config|
       cfg.vm.hostname = "w#{i}-k8s"
       cfg.vm.network "private_network", ip: "192.168.1.10#{i}"
       cfg.vm.network "forwarded_port",guest: 22, host: "6010#{i}", auto_currect: true, id: "ssh"
-      cfg.vm.provider "virtualbox" do |vb|
-        vb.customize ["modifyvm", :id, "--cpus", "2"]
-        vb.customize ["modifyvm", :id, "--memory", "1024"]
-        vb.customize ["modifyvm", :id, "--groups", "/k8s-SgMST-1.13.1(github_SysNet4Admin)"]
+      cfg.vm.provider "vmware_desktop" do |vb|
+        vb.vmx["memsize"] = "1024"
+        vb.vmx["numvcpus"] = "2"
       end
       cfg.vm.synced_folder "../data", "/vagrant", disabled: true
       cfg.vm.provision "shell", inline: <<-SHELL

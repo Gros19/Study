@@ -1,14 +1,14 @@
 #! /usr/bin/env bash
 #Kubectl
 #swap 해제
-swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
+sudo swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
 sudo modprobe br_netfilter
 # Set up required sysctl params, these persist across reboots.
-cat <<EOF >  /etc/sysctl.d/k8s.conf
+sudo cat <<EOF >  /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
-modprobe br_netfilter
+sudo modprobe br_netfilter
 
 sudo sysctl --system
 
@@ -24,7 +24,7 @@ EOF
 
 #name 서버 설정
 
-cat <<EOF > /etc/resolv.conf
+sudo cat <<EOF > /etc/resolv.conf
 
 nameserver 1.1.1.1 #cloudflare DNS
 

@@ -13,6 +13,8 @@ export default {
       bid: 0
     }
   },
+
+
   created() {
     console.log(this.$route);
     this.bid = this.$route.params.bid

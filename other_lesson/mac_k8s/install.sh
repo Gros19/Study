@@ -12,7 +12,7 @@
     lsb-release
 
 	 sudo mkdir -p /etc/apt/keyrings
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 
 echo \
@@ -22,7 +22,7 @@ echo \
 
 sudo apt-get update
 
-apt-cache madison docker-ce
+sudo apt-cache madison docker-ce
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 

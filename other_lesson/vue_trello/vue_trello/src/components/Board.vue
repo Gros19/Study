@@ -1,8 +1,11 @@
 <template>
-  <h1>{{bid}}</h1>
-  <div>
-    Board {{this.$route["params"]["bid"]}}
+  <div id="BoardId">
+    <h1>{{bid}}</h1>
+    <div>
+      Board {{this.$route["params"]["bid"]}}
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -23,5 +26,7 @@ export default {
 </script>
 
 <style scoped>
-
+#BoardId{
+  border: 2px solid #bb6b41;
+}
 </style>

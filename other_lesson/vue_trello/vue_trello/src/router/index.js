@@ -9,11 +9,37 @@ import ComputedCom from "@/components/ComputedCom";
 import WatchCom from "@/components/WatchCom";
 import DisplayCom from "@/components/DisplayCom";
 import SearchCom from "@/components/SearchCom";
-const RenderCom = () => import(/*" webpackChunkName: "lazyrender" */"@/components/RenderCom")
-const HelloWorld = () => import(/* webpackChunkName: "hello" */"@/components/HelloWorld") ;
+const RenderCom = () => import(/* webpackChunkName: "lazyrender" */"@/components/RenderCom");
+const ChoiceTPCOM = () => import(/* webpackChunkName: "hello" */"@/components/ChoiceTPCom") ;
 const ByeWorld = () => import(/* webpackChunkName: "bye" */"@/components/ByeWorld");
-const DataBindingHtml = () => import(/* webpackChunkName: "datahtml" */ "@/components/DataBindingHtml");
+const DataBindingHtml = () => import(/* webpackChunkName: "databind" */ "@/components/DataBindingHtml");
+const MainCom = () => import(/* webpackChunkName: "main" */"@/components/MainCom");
+const WorkPlaceCom = () => import(/* webpackChunkName: "workplace" */"@/components/WorkPlaceCom");
+const AccomCom = () => import(/* webpackChunkName: "accom" */"@/components/AccomCom");
+const RoomCom = () => import(/* webpackChunkName: "accom" */"@/components/RoomCom");
+const ActivityCom = () => import(/* webpackChunkName: "accom" */"@/components/ActivityCom");
 const routes = [
+
+    {
+        path: "/activity",
+        component: ActivityCom
+    },
+    {
+        path: "/room",
+        component: RoomCom
+    },
+    {
+        path: "/accom",
+        component: AccomCom
+    },
+    {
+        path: "/workplace",
+        component: WorkPlaceCom
+    },
+    {
+        path: "/main",
+        component: MainCom
+    },
     {
         path: "/html",
         component: DataBindingHtml
@@ -56,7 +82,7 @@ const routes = [
     },
     {
         path: '/',
-        component: HelloWorld
+        component: ChoiceTPCOM
     },
     {
         path: '/bye',

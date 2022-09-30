@@ -1,0 +1,148 @@
+<template>
+  <div class="hello" @click="pushData()">
+    여기를 클릭하면
+    <select v-model="wrkplaceRegion">
+        <option v-bind:key="i" v-for="(i) in division" v-on:click="log">
+          {{i}}
+        </option>
+    </select>
+    <div>{{wrkplaceRegion}}</div>
+    <div>{{startDt}}</div>
+    <div>{{endDt}}</div>
+
+    <input v-model="startDt" type="date"/>
+    <input v-model="endDt" type="date"/>
+
+    <div class="card" :key="i" v-for="(obj,i) in workdata">
+      {{obj}}
+      {{i}}
+      <div class="img_case_v">
+
+        <img class="img_v" v-bind:src="obj['wrkplacePath']">
+
+
+      </div>
+      <div class="card_info_v" v-on:click="log()">
+        여기 누르면 로그
+        <div>
+          <div>{{obj["wrkplaceId"]}}</div>
+          <div class="wp_name_v">{{obj["wrkplaceNm"]}}</div>
+          <div class="description_v">{{obj["wrkplaceDesc"]}}</div>
+          <div class="asset_v">{{obj["wrkplaceMoney"]}}</div>
+          <div>{{obj["wrkplaceMaxCnt"]}}</div>
+          <button>숙소 선택하기</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios'
+export default {
+  name: 'HelloWorld',
+  data() {
+    return {
+      division: ["서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시", "세종특별자치시", "경기도", "강원도",],
+      wrkplaceRegion: "",
+      startDt: "",
+      endDt: "",
+      workdata: [{},{}]
+
+    }
+  },
+  props: {
+    msg: String
+  },
+  methods:{
+    log(){
+      console.log(this.wrkplaceRegion);
+      console.log(this.workdata);
+    },
+    pushData() {
+      let obj =[]
+      console.log(this.wrkplaceRegion)
+      axios.post("http://localhost:8083/task/v1/workcation/getWorkPlaceList",{"wrkplaceRegion":this.wrkplaceRegion}).then(function (response) {
+        console.log('response::',response.data["resultData"]);
+        obj = [...response.data["resultData"]]
+      }).catch(function (error) {
+            console.log('maincom::',error);
+          });
+
+      this.workdata = [...obj];
+      console.log(this.workdata);
+    }
+  },
+  mutation:{
+
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.wp_name_v {
+  background: rgba(45, 166, 51, 0.53);
+}
+
+.description_v {
+  background: rgba(166, 77, 45, 0.53);
+}
+
+.asset_v {
+  background: rgba(86, 211, 224, 0.53);
+}
+
+.card_info_v {
+  display: inline-block;
+  width: 500px;
+  height: 300px;
+  background: rgba(45, 156, 166, 0.53);
+}
+
+.img_case_v {
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  background: rgba(127, 255, 0, 0.44);
+}
+
+.img_v {
+  width: 300px;
+  margin-top: 7%;
+}
+
+.card {
+  margin-left: 27.5%;
+  margin-bottom: 8%;
+  width: 900px;
+  height: 300px;
+  border: 2px solid #a62d8e;
+
+}
+
+.hello {
+  border: 5px solid red;
+}
+
+
+h3 {
+  margin: 40px 0 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+</style>

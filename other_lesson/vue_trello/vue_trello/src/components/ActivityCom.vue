@@ -45,30 +45,26 @@ export default {
   props: {
     msg: String
   },methods:{
-    why(){
-      this.c = this.$store.state.obj
-      console.log(this.c)
-    },
     log(pram){
       console.log(pram);
-    },roomPushData(obj) {
+    },
+    roomPushData(obj) {
       //임시로 강원도를 넣어줌
       this.activityRegion = "강원도";
-      axios.post("http://localhost:8083/task/v1/workcation/getActivityList",{"activityRegion":this.activityRegion}).then(function (response) {
-        let d = response.data["resultData"];
-        console.log('response,', response);
-        console.log(d);
+      axios.post("http://localhost:8083/task/v1/workcation/getActivityList",{"activityRegion":this.activityRegion})
+          .then(function (response) {
+              let d = response.data["resultData"];
+              console.log('response,', response);
+              console.log(d);
 
-        if(obj.length === 0  || d.length !== obj.length){
-          obj.splice(0,obj.length);
-          for(var a=0; a < d.length; a++){
-            console.log("if:: ", d[a]);
-            obj.push(d[a]);
-          }
-        }
-
-
-      })
+              if(obj.length === 0  || d.length !== obj.length){
+                obj.splice(0,obj.length);
+                for(var a=0; a < d.length; a++){
+                  console.log("if:: ", d[a]);
+                  obj.push(d[a]);
+                }
+              }
+          })
           .catch(function (error) {
             console.log(error);
           });

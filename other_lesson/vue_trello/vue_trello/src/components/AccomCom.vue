@@ -62,10 +62,6 @@ export default {
   props: {
     msg: String
   },methods:{
-    why(){
-      this.c = this.$store.state.obj
-      console.log(this.c)
-    },
     log(pram){
       console.log(pram);
     },accomPushData(obj) {

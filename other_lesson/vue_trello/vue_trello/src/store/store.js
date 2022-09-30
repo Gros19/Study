@@ -2,20 +2,32 @@ import Vuex from "vuex"
 export default new Vuex.Store({
     state(){
         return {
-            obj:0
+            workObj:{"sample":"a"},
+            accomObj:{"sample":"b"},
+            roomObj:{"sample":"c"},
+            activityObj:{"sample":"d"}
         }
     },
     mutations: {
-        setObj(state, data){
-            state.obj = data;
-            console.log('mu:');
-            console.log(data);
+        setWorkObj: (state, payload) => {
+            state.workObj = payload
+        },
+        setAccomObj: (state, payload) => {
+            state.accomObj = payload
+        },
+        setRoomObj: (state, payload) => {
+            state.roomObj = payload
+        },
+        setActivityObj: (state, payload) => {
+            state.activityObj = payload
         }
+
     },
     getters:{
-        myobj: function (state) {
-            return state.obj;
-        }
+        getWorkObj: state => state.workObj,
+        getAccomObj: state => state.accomObj,
+        getRoomObj: state => state.roomObj,
+        getActivityObj: state => state.activityObj
     }
 
 

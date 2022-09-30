@@ -2,9 +2,8 @@
   <div id="root_v">
     <h3>{{msg2}}</h3>
     <NavBar/>
-    <router-view id="router_vue"></router-view>
     <p class="line">WorkPlace</p>
-    <WorkPlace/>
+    <router-view id="router_vue"></router-view>
     <p class="line">AccomCom</p>
     <AccomCom/>
     <p class="line">RoomCom</p>
@@ -18,7 +17,7 @@
 
 <script>
 
-import WorkPlace from '@/components/WorkPlaceCom.vue'
+// import WorkPlace from '@/components/WorkPlaceCom.vue'
 import NavBar from './components/NavBar.vue'
 import AccomCom from './components/AccomCom.vue'
 import RoomCom from './components/RoomCom.vue'
@@ -26,7 +25,7 @@ import ActivityCom from './components/ActivityCom.vue'
 export default {
   name: 'App',
   components: {
-    NavBar, WorkPlace,AccomCom,RoomCom, ActivityCom
+    NavBar,AccomCom,RoomCom, ActivityCom
   },
   data(){
     return{

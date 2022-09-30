@@ -38,7 +38,7 @@
 
 <script>
 import axios from "axios";
-import {mapGetters} from 'vuex';
+import {mapGetters, mapMutations} from 'vuex';
 // import {mapGetters, mapMutations, mapState} from 'vuex';
 export default {
   name: 'HelloWorld',
@@ -54,8 +54,7 @@ export default {
 
   methods:{
 
-    // ...mapMutations(["setWorkObj"]),
-    // ...mapState(["workObj"]),
+    ...mapMutations(["setWorkObj"]),
     log(){
       console.log("log:: ", this.workObj)
     },

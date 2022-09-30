@@ -1,5 +1,6 @@
 <template>
   <div class="hello" v-on:click="roomPushData(this.responseData)" >
+    {{getRoomObj}}
     여기를 누르면
     <p>sds</p>
     <p>sds</p>
@@ -34,12 +35,12 @@
 <script>
 
 import axios from "axios";
+import {mapGetters} from "vuex";
 
 export default {
   name: 'HelloWorld',
-  setup(){
-    return{
-    };
+  computed:{
+    ...mapGetters({getRoomObj: "getRoomObj"})
   },
   data() {
     return {

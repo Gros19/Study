@@ -1,5 +1,8 @@
 <template>
   <div class="hello" v-on:click="accomPushData(this.responseData)" >
+    <div>
+      {{accom}}
+    </div>
     여기를 누르면
     <p>sds</p>
     <p>sds</p>
@@ -11,7 +14,7 @@
         <img class="img_v" v-bind:src="obj['profilePath']">
 
       </div>
-      <div class="card_info_v" v-on:click="log(obj['accomNm'])">
+      <div class="card_info_v" v-on:click="log(obj['accomNm']), setAccom(obj)">
         여기를 누르면 로그
         <div>
           <div>{{obj["accomId"]}}</div>
@@ -30,6 +33,7 @@
 <script>
 
 import axios from "axios";
+import {mapMutations, mapState} from "vuex";
 /*
 [
     {
@@ -48,9 +52,8 @@ import axios from "axios";
  */
 export default {
   name: 'HelloWorld',
-  setup(){
-    return{
-    };
+  computed: {
+    ...mapState({accom:"accomObj"})
   },
   data() {
     return {
@@ -62,6 +65,7 @@ export default {
   props: {
     msg: String
   },methods:{
+    ...mapMutations({setAccom:"setAccomObj"}),
     log(pram){
       console.log(pram);
     },accomPushData(obj) {
@@ -83,6 +87,7 @@ export default {
           });
       console.log("rep:: ",this.responseData);
       console.log("obj:: ",obj);
+
     }
   }
 

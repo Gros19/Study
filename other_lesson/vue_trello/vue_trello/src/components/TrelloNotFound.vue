@@ -1,10 +1,12 @@
 <template>
-<h3>Not Found</h3>
+<div>
+  TrelloNotFound
+</div>
 </template>
 
 <script>
 export default {
-  name: "NotFound"
+  name: "TrelloNotFound"
 }
 </script>
 
